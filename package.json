@@ -1,0 +1,29 @@
+{
+  "name": "chess",
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "https://github.com/gmclean3107/chess#readme",
+  "bugs": {
+    "url": "https://github.com/gmclean3107/chess/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gmclean3107/chess.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "test",
+    "lint": "eslint . --ext .js",
+    "format": "prettier-eslint --eslint-config-path=<YOUR_CONFIG_PATH> --write '**/*.js'"
+  },
+  "devDependencies": {
+    "eslint": "^8.57.1",
+    "parcel": "^2.13.3",
+    "prettier": "^3.5.1",
+    "prettier-eslint": "^16.3.0",
+    "prettier-eslint-cli": "^8.0.1"
+  }
+}
