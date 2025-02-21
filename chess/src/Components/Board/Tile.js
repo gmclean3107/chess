@@ -1,8 +1,12 @@
 import React from "react";
 import "./Tile.css";
 
-export default Tile = (props) => {
-    return(
-        <div className={props.class}></div>
+const Tile = (props) => {
+    return (
+        <div className={props.class}>
+            {props.imgLoc && <img className="piece-img" src={props.imgLoc} />}
+        </div>
     );
 };
+
+export default Tile;
