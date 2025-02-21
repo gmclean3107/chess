@@ -68,21 +68,28 @@ export default function Board() {
     }, []);
 
     return (
-        <div
-            style={{
-                display: "grid",
-                gridTemplateColumns: "repeat(8, 50px)",
-                gridTemplateRows: "repeat(8, 50px)",
-                gap: "0",
-            }}
-        >
-            {board.map((row, i) =>
-                row.map((tile, x) => (
-                    <div id={`${i + 1}-${x + 1}`} key={`${i + 1}-${x + 1}`}>
-                        {<Tile imgLoc={tile.imgLoc} class={tile.class} />}
-                    </div>
-                ))
-            )}
+        <div style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            height: "100vh",
+        }}>
+            <div
+                style={{
+                    display: "grid",
+                    gridTemplateColumns: "repeat(8, 50px)",
+                    gridTemplateRows: "repeat(8, 50px)",
+                    gap: "0",
+                }}
+            >
+                {board.map((row, i) =>
+                    row.map((tile, x) => (
+                        <div id={`${i + 1}-${x + 1}`} key={`${i + 1}-${x + 1}`}>
+                            {<Tile imgLoc={tile.imgLoc} class={tile.class} />}
+                        </div>
+                    ))
+                )}
+            </div>
         </div>
     );
 }
