@@ -1,6 +1,13 @@
 import "./Pieces.css";
+import { useAppContext } from '../../contexts/Context';
+import referee from '../../referee/referee.js';
+import { generateMoves } from "../../reducer/actions/move.js";
 
 const Piece = ({rank, file, piece}) => {
+
+    const {appState, dispatch} = useAppContext();
+    const {turn, position} = appState;
+    const currentPosition = position[position.length - 1];
 
     const onDragStart = (e) => {
         e.dataTransfer.effectAllowed = 'move';
@@ -8,6 +15,10 @@ const Piece = ({rank, file, piece}) => {
         setTimeout(() => {
             e.target.style.display = 'none';
         }, 0);
+        if (turn === piece[0]) {
+            const moves = referee.getRegularMoves({position: currentPosition, piece, rank, file});
+            dispatch(generateMoves({moves}));
+        }
     }
 
     return(

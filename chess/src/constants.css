@@ -2,4 +2,5 @@
     --tile-size : 100px;
     --light-tile : #F0D8B7;
     --dark-tile : #B48764;
+    --highlight : rgba(0,0,0,0.1);
 }

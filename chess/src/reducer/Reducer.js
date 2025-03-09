@@ -18,6 +18,20 @@ export const Reducer = (state, action) => {
             };
         }
 
+        case actionTypes.GENERATE_MOVES: {
+            return {
+                ...state,
+                moves: action.payload.moves
+            };
+        }
+        
+        case actionTypes.CLEAR_MOVES: {
+            return {
+                ...state,
+                moves: []
+            }
+        }
+
         default:
             return state;
     }

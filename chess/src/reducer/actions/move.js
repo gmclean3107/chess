@@ -6,3 +6,16 @@ export const makeMove = ({newPos}) => {
         payload: {newPos}
     };
 }
+
+export const generateMoves = ({moves}) => {
+    return {
+        type: actionTypes.GENERATE_MOVES,
+        payload: {moves}
+    };
+}
+
+export const clearMoves = () => {
+    return {
+        type: actionTypes.CLEAR_MOVES
+    }
+}

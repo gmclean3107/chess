@@ -3,7 +3,7 @@ import Piece from "./Piece";
 import { useState, useRef } from "react";
 import { createPosition, copyPos } from "../../helper";
 import { useAppContext } from "../../contexts/Context";
-import { makeMove } from "../../reducer/actions/move";
+import { clearMoves, makeMove } from "../../reducer/actions/move";
 
 const Pieces = () => {
 
@@ -27,10 +27,15 @@ const Pieces = () => {
         const {x, y} = calculateCoords(e);
         const [piece, rank, file] = e.dataTransfer.getData('text').split(',');
 
-        newPos[rank][file] = '';
-        newPos[x][y] = piece;
+        if (appState.moves?.find((m) => m[0] === x && m[1] === y)) {
+            newPos[rank][file] = '';
+            newPos[x][y] = piece;
+    
+            dispatch(makeMove({newPos}));
+        }
 
-        dispatch(makeMove({newPos}));
+        dispatch(clearMoves());
+
     }
 
     const onDragOver = (e) => {
